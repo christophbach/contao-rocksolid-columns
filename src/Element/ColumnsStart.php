@@ -84,30 +84,35 @@ class ColumnsStart extends \ContentElement
 		foreach (array('large', 'medium', 'small') as $media) {
 
 			$columns = isset($data['rs_columns_' . $media])
-				? $data['rs_columns_' . $media]
-				: null;
-			if (!$columns) {
-				$columns = $lastColumns ?: '2';
-			}
-			$lastColumns = $columns;
+                ? $data['rs_columns_' . $media]
+                : null
+            ;
+
+			//if (!$columns) {
+			//	$columns = $lastColumns ? : '2';
+			//}
+
+			//$lastColumns = $columns;
 
 			$columns = array_map(function($value) {
-				return (int)$value ?: 1;
+				//return (int)$value ?: 1;
+                return (int)$value ?: '';
 			}, explode('-', $columns));
 
-			if (count($columns) === 1 && $columns[0] > 1) {
-				$columns = array_fill(0, (int)$columns[0], '1');
-			}
+			//if (count($columns) === 1 && $columns[0] > 1) {
+			//	$columns = array_fill(0, (int)$columns[0], '1');
+			//}
 
-			$columnsTotal = array_reduce($columns, function($a, $b) {
-				return $a + $b;
-			});
+			//$columnsTotal = array_reduce($columns, function($a, $b) {
+			//	return $a + $b;
+			//});
 			$classes = array();
 			foreach ($columns as $key => $column) {
-				$classes[] = array('-' . $media . '-col-' . $columnsTotal . '-' . $column);
+				//$classes[] = array('-' . $media . '-col-' . $columnsTotal . '-' . $column);
+                $classes[] = array($media.'-'.$column);
 			}
-			$classes[0][] = '-' . $media . '-first';
-			$classes[count($classes) - 1][] = '-' . $media . '-last';
+//			$classes[0][] = '-' . $media . '-first';
+//			$classes[count($classes) - 1][] = '-' . $media . '-last';
 			$config[$media] = $classes;
 
 		}

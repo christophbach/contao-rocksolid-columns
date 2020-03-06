@@ -42,9 +42,9 @@ class ColumnStart extends \ContentElement
 			$count = $GLOBALS['TL_RS_COLUMNS'][$parentKey]['count'];
 			foreach ($GLOBALS['TL_RS_COLUMNS'][$parentKey]['config'] as $name => $media) {
 				$classes = array_merge($classes, $media[($count - 1) % count($media)]);
-				if ($count - 1 < count($media)) {
-					$classes[] = '-' . $name . '-first-row';
-				}
+				//if ($count - 1 < count($media)) {
+				//	$classes[] = '-' . $name . '-first-row';
+				//}
 			}
 
 		}

@@ -35,6 +35,13 @@ class Columns
 		if ($layout->rs_columns_load_css) {
 			$GLOBALS['TL_CSS'][] = 'bundles/rocksolidcolumns/css/columns.css||static';
 		}
+
+//        if ($layout->conv_columns_load_css) {
+//            $assetsDir = version_compare(VERSION, '4.0', '>=')
+//                ? 'web/bundles/converiacolumns'
+//                : 'system/modules/converia-columns/assets';
+//            $GLOBALS['TL_CSS'][] = $assetsDir . '/css/columns.css||static';
+//        }
 	}
 
 	/**
